@@ -1,0 +1,27 @@
+---
+- name: Install prerequisites
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: "{{ apt_prereq_state }}"
+    update_cache: true
+    cache_valid_time: 3600
+  loop: "{{ apt_prereq }}"
+
+- name: Add The Hashicorp GPG Key
+  ansible.builtin.shell:
+    cmd: |
+      wget -O- {{ hashicorp_gpg_url }} |
+        gpg --dearmor |
+        tee {{ hashicorp_gpg_file }}
+    creates: "{{ hashicorp_gpg_file }}"
+    chdir: /tmp # change dir to basically discard the wget log file :)
+
+- name: Add The Hashicorp APT Repo
+  ansible.builtin.apt_repository:
+    repo: "{{ hashicorp_apt_repo }}"
+    state: "{{ hashicorp_apt_repo_state }}"
+
+- name: Install Packer
+  ansible.builtin.apt:
+    name: "{{ packer_pkg_name }}"
+    state: "{{ packer_pkg_state }}"
