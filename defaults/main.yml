@@ -1,27 +1,28 @@
 ---
 # The state for the prerequisite apt packages
-apt_prereq_state: present
+packer_prereq_state: present
 
 # The list of prerequisite apt packages
-apt_prereq:
+packer_prereq:
   - gnupg
   - software-properties-common
   - wget
-
-# The URL for the hasichorp repository
-hashicorp_url: https://apt.releases.hashicorp.com
+  - apt-transport-https
 
 # The URL for the hasichorp repository gpg
-hashicorp_gpg_url: https://apt.releases.hashicorp.com/gpg
+packer_gpg_url: https://apt.releases.hashicorp.com/gpg
 
 # The path at which the gpg file is downloaded
-hashicorp_gpg_file: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+packer_gpg_file: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+# The URL for the hasichorp repository
+packer_apt_repo_url: https://apt.releases.hashicorp.com
 
 # The hashicorp repo config
-hashicorp_apt_repo: "deb [signed-by={{ hashicorp_gpg_file }}] {{ hashicorp_url }} {{ ansible_distribution_release }} main"
+packer_apt_repo: "deb [signed-by={{ packer_gpg_file }}] {{ packer_apt_repo_url }} {{ ansible_distribution_release }} main"
 
 # The hashicorp repo state (present -> install, absent -> uninstall)
-hashicorp_apt_repo_state: present
+packer_apt_repo_state: present
 
 # The Packer apt package name
 packer_pkg_name: packer
