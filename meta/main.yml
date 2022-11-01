@@ -3,11 +3,6 @@ galaxy_info:
   namespace: mirceanton
   role_name: packer
   description: A role that install Packer.
-  # company: N/A
-
-  # If the issue tracker for your role is not on github, uncomment the
-  # next line and provide a value
-  # issue_tracker_url: http://example.com/issue/tracker
 
   license: license (MIT)
   min_ansible_version: '2.1'
@@ -29,4 +24,5 @@ galaxy_info:
     - hashicorp
     - packer
 
-dependencies: []
+dependencies:
+  - role: mirceanton.downloader
