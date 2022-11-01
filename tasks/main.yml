@@ -1,27 +1,9 @@
 ---
-- name: Install prerequisites
-  ansible.builtin.apt:
-    name: "{{ item }}"
-    state: "{{ packer_prereq_state }}"
-    update_cache: true
-    cache_valid_time: 3600
-  loop: "{{ packer_prereq }}"
-
-- name: Add The Hashicorp GPG Key
-  ansible.builtin.shell:
-    cmd: |
-      wget -O- {{ packer_gpg_url }} |
-        gpg --dearmor |
-        tee {{ packer_gpg_file }}
-    creates: "{{ packer_gpg_file }}"
-    chdir: /tmp # change dir to basically discard the wget log file :)
-
-- name: Add The Hashicorp APT Repo
-  ansible.builtin.apt_repository:
-    repo: "{{ packer_apt_repo }}"
-    state: "{{ packer_apt_repo_state }}"
-
-- name: Install Packer
-  ansible.builtin.apt:
-    name: "{{ packer_pkg_name }}"
-    state: "{{ packer_pkg_state }}"
+- name: Include downloader role
+  ansible.builtin.include_role:
+    name: mirceanton.downloader
+  vars:
+    downloader_archive_url: "{{ packer_url }}"
+    downloader_archive_dest: "{{ packer_temp_download_dir }}"
+    downloader_exec_src: "{{ packer_temp_download_dir }}/packer"
+    downloader_exec_dest: "{{ packer_exec_path }}"

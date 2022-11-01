@@ -3,7 +3,16 @@
   hosts: all
   gather_facts: true
 
+  vars_files:
+    - ../../defaults/main.yml
+    - ../../vars/main.yml
+
   tasks:
     - name: "Include mirceanton.packer"
       ansible.builtin.include_role:
         name: "mirceanton.packer"
+      vars:
+        downloader_archive_url: "{{ packer_url }}"
+        downloader_archive_dest: "{{ packer_temp_download_dir }}"
+        downloader_exec_src: "{{ packer_temp_download_dir }}/packer"
+        downloader_exec_dest: "{{ packer_exec_path }}"

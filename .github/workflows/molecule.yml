@@ -28,5 +28,8 @@ jobs:
       - name: Install Galaxy dependencies.
         run: ansible-galaxy collection install community.docker
 
+      - name: Install role dependencies.
+        run: ansible-galaxy install mirceanton.downloader
+
       - name: Run molecule
         run: molecule test

@@ -1,7 +1,7 @@
 Ansible Role: Packer
-====================
+=======================
 
-An Ansible role that installs Packer by configuring the apt repo.
+An Ansible role that installs Packer by downloading the precompiled binary.
 
 Requirements
 ------------
@@ -11,9 +11,13 @@ N/A
 Role Variables
 --------------
 
-This role has no customizable variables.
+|       Variable        |  Type  | Default |                 Description                  |
+| :-------------------: | :----: | :-----: | :------------------------------------------: |
+|   `packer_version`    | string | `1.8.4` |      The version of packer to install.       |
+| `packer_architecture` | string | `amd64` | The architecture for the binary to download. |
+|      `packer_os`      | string | `linux` |      The OS for the binary to download.      |
 
-To check the default variables, take a look at the [defaults](defaults/main.yml) file.
+For more details about the **default** variables, take a look at the [defaults/main.yml](defaults/main.yml).
 
 Dependencies
 ------------
@@ -30,6 +34,10 @@ Example Playbook
 
   roles:
     - role: mirceanton.packer
+      vars:
+        packer_version: "1.8.4"
+        packer_architecture: arm64
+        packer_os: linux
 ```
 
 License
