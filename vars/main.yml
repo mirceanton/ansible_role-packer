@@ -1,0 +1,4 @@
+---
+packer_version: "1.8.4"
+packer_architecture: amd64
+packer_os: linux
