@@ -16,4 +16,3 @@
         downloader_archive_dest: "{{ packer_temp_download_dir }}"
         downloader_exec_src: "{{ packer_temp_download_dir }}/packer"
         downloader_exec_dest: "{{ packer_exec_path }}"
-
