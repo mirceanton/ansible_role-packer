@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.0
+
+**💣 Breaking changes**:
+
+* Changed from configuring the apt repos to downloading precompiled binaries for multi-arch support. This means that there are now required variables to be set!
+
 ## v2.0.0
 
 **💣 Breaking changes**:
