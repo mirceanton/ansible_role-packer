@@ -17,6 +17,8 @@ Role Variables
 | `packer_architecture` | string | `amd64` | The architecture for the binary to download. |
 |      `packer_os`      | string | `linux` |      The OS for the binary to download.      |
 
+For more details about the **default** variables, take a look at the [defaults/main.yml](defaults/main.yml).
+
 Dependencies
 ------------
 
