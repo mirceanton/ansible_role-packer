@@ -1,3 +1,9 @@
 ---
 # The official URL to download the packer binary
 packer_url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ packer_os }}_{{ packer_architecture }}.zip
+
+# Temporary directory to store intermediate files
+packer_temp_download_dir: /tmp
+
+# Path to the packer executable
+packer_exec_path: /usr/bin/packer
