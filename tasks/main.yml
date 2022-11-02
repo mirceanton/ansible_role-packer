@@ -1,6 +1,6 @@
 ---
 - name: Include downloader role
-  ansible.builtin.include_role:
+  ansible.builtin.import_role:
     name: mirceanton.downloader
   vars:
     downloader_archive_url: "{{ packer_url }}"
