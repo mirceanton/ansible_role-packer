@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.1
+
+* Migrate from `incude_role` to `import_role` to fix variables not getting passed through.
+
 ## v3.0.0
 
 **💣 Breaking changes**:
