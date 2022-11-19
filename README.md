@@ -22,7 +22,7 @@ For more details about the **default** variables, take a look at the [defaults/m
 Dependencies
 ------------
 
-N/A
+- `mirceanton.downloader`@`v1.0.0`
 
 Example Playbook
 ----------------

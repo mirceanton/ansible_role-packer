@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.2
+
+* Specify exact versions for dependencies.
+
 ## v3.0.1
 
 * Migrate from `incude_role` to `import_role` to fix variables not getting passed through.
